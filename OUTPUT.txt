@@ -1,0 +1,201 @@
+SAMPLE OUTPUT:- 
+
+-------------------------------------------------------------------------------
+Welcome to DavisBase
+DavisBase Version v1.0b(example)
+©2018 Ramya Ramineni
+
+Type "help;" to display supported commands.
+--------------------------------------------------------------------------------
+davisql> create table table1 (row_id int primary key, name text not null, number smallint, dob date);
+CASE: CREATE
+STUB: Calling your method to create a table
+Parsing the string:"create table table1 (row_id int primary key, name text not null, number smallint, dob date)"
+Table is created Successfully
+
+
+davisql> create table table2 (row_id int primary key, course text, number int not null);
+CASE: CREATE
+STUB: Calling your method to create a table
+Parsing the string:"create table table2 (row_id int primary key, course text, number int not null)"
+Table is created Successfully
+
+
+davisql> insert into table1 (null, "1994-05-02");
+CASE: INSERT
+STUB: This is the Insert method
+Parsing the string:"insert into table1 (null, "1994-05-02")"
+Expected VALUES keyword
+
+
+davisql> insert into table1 (name, dob) values (null, "1994-05-02");
+CASE: INSERT
+STUB: This is the Insert method
+Parsing the string:"insert into table1 (name, dob) values (null, "1994-05-02")"
+ERROR: Number of column names and values provided are not matching
+
+
+davisql> insert into table1 (name, number, dob) values (null, 101, "1994-05-02");
+CASE: INSERT
+STUB: This is the Insert method
+Parsing the string:"insert into table1 (name, number, dob) values (null, 101, "1994-05-02")"
+Nullable Field can't be null
+
+
+davisql> insert into table1 (name, number, dob) values ("John", 101, "1994-05-02");
+CASE: INSERT
+STUB: This is the Insert method
+Parsing the string:"insert into table1 (name, number, dob) values ("john", 101, "1994-05-02")"
+Record is inserted Successfully
+
+
+davisql> insert into table1 (name, number, dob) values ("Andrea", 101, "1992-08-04");
+CASE: INSERT
+STUB: This is the Insert method
+Parsing the string:"insert into table1 (name, number, dob) values ("andrea", 101, "1992-08-04")"
+Record is inserted Successfully
+
+
+davisql> select * from table1;
+CASE: SELECT
+STUB: This is the Select method
+Parsing the string:"select * from table1"
+row_id		name		number		dob		
+1		john		101		1994-05-02		
+2		andrea		101		1992-08-04	
+
+	
+davisql> select from table1 where row_id = 1;
+CASE: SELECT
+STUB: This is the Select method
+Parsing the string:"select from table1 where row_id = 1"
+Invalid select command
+
+		
+davisql> select * from table1 where row_id = 1;
+CASE: SELECT
+STUB: This is the Select method
+Parsing the string:"select * from table1 where row_id = 1"
+row_id		name		number		dob		
+1		john		101		1994-05-02
+
+		
+davisql> select * from table1 where row_id = 2;
+CASE: SELECT
+STUB: This is the Select method
+Parsing the string:"select * from table1 where row_id = 2"
+row_id		name		number		dob		
+2		andrea		101		1992-08-04
+
+		
+davisql> show tables;
+CASE: SHOW
+STUB: This is the show tables method
+Parsing the string:"show tables"
+table1
+table2
+
+
+davisql> delete from table1 where row_id = 2;
+CASE: DELETE
+STUB: This is the Delete method
+Parsing the string:"delete from table1 where row_id = 2"
+Record is deleted successfully
+
+
+davisql> select * from table1;
+CASE: SELECT
+STUB: This is the Select method
+Parsing the string:"select * from table1"
+row_id		name		number		dob		
+1		john		101		1994-05-02	
+
+	
+davisql> update table1 set number = 201 where row_id = 2;
+CASE: UPDATE
+STUB: This is the dropTable method
+Parsing the string:"update table1 set number = 201 where row_id = 2"
+Invalid Row ID
+
+
+davisql> update table1 set number = 201 where row_id = 1;
+CASE: UPDATE
+STUB: This is the dropTable method
+Parsing the string:"update table1 set number = 201 where row_id = 1"
+Updated successfully
+
+
+davisql> select * from table1;
+CASE: SELECT
+STUB: This is the Select method
+Parsing the string:"select * from table1"
+row_id		name		number		dob		
+1		john		201		1994-05-02		
+
+
+davisql> drop table table1;
+CASE: DROP
+STUB: This is the dropTable method.
+Parsing the string:"drop table table1"
+table1 table is dropped successfully
+
+
+davisql> show tables;
+CASE: SHOW
+STUB: This is the show tables method
+Parsing the string:"show tables"
+table2
+
+
+davisql> drop table table2;
+CASE: DROP
+STUB: This is the dropTable method.
+Parsing the string:"drop table table1"
+table2 table is dropped successfully
+
+
+davisql> show tables;
+CASE: SHOW
+STUB: This is the show tables method
+Parsing the string:"show tables"
+No tables available
+
+
+davisql> help;
+********************************************************************************
+SUPPORTED COMMANDS
+
+All commands below are case insensitive
+
+SHOW TABLES;
+	Display the names of all tables.
+
+SELECT <column_list> FROM <table_name> [WHERE <condition>];
+	Display table records whose optional <condition>
+	is <column_name> = <value>.
+
+DROP TABLE <table_name>;
+	Remove table data (i.e. all records) and its schema.
+
+UPDATE TABLE <table_name> SET <column_name> = <value> [WHERE <condition>];
+	Modify records data whose optional <condition> is
+
+VERSION;
+	Display the program version.
+
+HELP;
+	Display this help information.
+
+EXIT;
+	Exit the program.
+
+********************************************************************************
+
+
+davisql> version;
+DavisBaseLite Version v1.0b(example)
+©2018 Ramya Ramineni
+
+
+davisql> exit;
+Exiting...
